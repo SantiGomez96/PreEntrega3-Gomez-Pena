@@ -335,6 +335,14 @@ nav {justify-content:space-between;margin-bottom:40px;background-image: linear-g
     position: absolute;
     display: none;
   }
+
+  .sumar {
+    cursor: pointer;
+  }
+
+  .restar {
+    cursor: pointer;
+  }
   
   
   

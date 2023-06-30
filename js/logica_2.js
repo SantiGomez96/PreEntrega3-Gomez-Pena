@@ -1,6 +1,7 @@
 const misProductos = document.getElementById("misProductos");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
+const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 let carrito = [];
 
@@ -38,7 +39,7 @@ productos.forEach((product) => {
             img : product.img,
             nombre : product.nombre,
             precio : product.precio,
-            stock : product.stock, 
+            cantidad : product.cantidad, 
         });
     }
         console.log(carrito);
