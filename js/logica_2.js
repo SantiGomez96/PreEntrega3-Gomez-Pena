@@ -3,7 +3,7 @@ const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 productos.forEach((product) => {
     let content = document.createElement("div");
@@ -41,10 +41,21 @@ productos.forEach((product) => {
             precio : product.precio,
             cantidad : product.cantidad, 
         });
-    }
+    
         console.log(carrito);
+        console.log(carrito.length);
+        carritoCounter();
+        saveLocal();
+      }
     });
 });
+
+//set item
+const saveLocal = () => { 
+localStorage.setItem("carrito", JSON.stringify (carrito));
+};
+//get item
+
 
 
 
