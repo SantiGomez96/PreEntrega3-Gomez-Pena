@@ -1,3 +1,4 @@
+//CONSTRUCCION DEL DINAMISMO DE NUESTRO SITIO WEB
 const misProductos = document.getElementById("misProductos");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
@@ -5,7 +6,12 @@ const cantidadCarrito = document.getElementById("cantidadCarrito");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-productos.forEach((product) => {
+const getProducts = async () => {
+    const response =  await fetch("data.json");
+    const data = await response.json();
+
+    //CREAMOS LAS CARTAS DE LOS PRODUCTOS A PARTIR DEL DOM
+data.forEach((product) => {
     let content = document.createElement("div");
     content.className = "card";
     content.innerHTML = `
@@ -24,8 +30,17 @@ productos.forEach((product) => {
     content.append(comprar);
 
     comprar.addEventListener("click", () =>{
-
     const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
+    
+    //AGREGAMOS SWEETALERT POR CADA PRODUCTO AGREGADO
+    Swal.fire({
+        title: 'Fabuloso!!',
+        text: `Agregaste ${product.nombre} al carrito `,
+        imageUrl: product.img,
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: product.nombre,
+      })
 
     if (repeat){
         carrito.map((prod) => {
@@ -49,12 +64,28 @@ productos.forEach((product) => {
       }
     });
 });
+};
+getProducts();
+
 
 //set item
 const saveLocal = () => { 
 localStorage.setItem("carrito", JSON.stringify (carrito));
 };
-//get item
+
+//FINALIZAR COMPRA
+let finalizarCompra = document.getElementById('finalizarCompra');
+
+finalizarCompra.onclick=()=>{
+    carrito=[];
+    document.getElementById('modalContainer').innerHTML='';
+    document.getElementById('total').innerText = 'Total a pagar $:';
+    Toastify({
+        text:'Gracias por tu compra, recibiras tu paquete en las proximas 48 horas',
+        duration:3000
+    }).showToast();
+}
+
 
 
 
