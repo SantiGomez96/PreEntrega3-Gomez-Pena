@@ -67,71 +67,29 @@ data.forEach((product) => {
 };
 getProducts();
 
-
-//set item
-const saveLocal = () => { 
-localStorage.setItem("carrito", JSON.stringify (carrito));
-};
-
 //FINALIZAR COMPRA
 let finalizarCompra = document.getElementById('finalizarCompra');
 
 finalizarCompra.onclick=()=>{
     carrito=[];
-    document.getElementById('modalContainer').innerHTML='';
+    localStorage.removeItem("carrito");
+    carritoCounter(); //establecemos el contador en cero despues de finalizar la compra
+    document.getElementById('modal-container').innerHTML='';
     document.getElementById('total').innerText = 'Total a pagar $:';
     Toastify({
-        text:'Gracias por tu compra, recibiras tu paquete en las proximas 48 horas',
-        duration:3000
+        text:'Gracias por tu compra, recibiras tu paquete en las proximas 72 horas',
+        duration:5000,
+        gravity:'bottom',
+        position:'bottom-left',
+        
     }).showToast();
-}
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//set item
+const saveLocal = () => { 
+localStorage.setItem("carrito", JSON.stringify (carrito));
+};
 
 
 
@@ -181,6 +139,8 @@ function validar(eve){
 let RedesSociales = document.getElementsByTagName('a');
 console.log(RedesSociales);
 
-RedesSociales[5,6,7].style.fontSize = '20px';  
+RedesSociales[5].style.fontSize = '20px'; 
+RedesSociales[6].style.fontSize = '20px';
+RedesSociales[7].style.fontSize = '20px'; 
 
 //PREGUNTAR POR QUE SOLO ME TOMA LA POSICION 7 PARA HACER EL CAMBIO DE TAMANO DE FUENTE

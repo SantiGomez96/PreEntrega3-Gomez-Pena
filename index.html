@@ -7,7 +7,7 @@
     <!--ETIQUETAS META SEO-->
     <meta name="" content="">
     <!--FAVICON-->
-    <link rel="shortcut icon" href="logos/LOGO ADOR.png" class="bg-dark" type="image/x-icon">
+    <link rel="shortcut icon" href="logos/LOGO ADOR.png" type="image/x-icon">
     <title>Compras ADOR</title>
     <!--google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
     <!--LINK CSS-->
     <link rel="stylesheet" href="../css/style.css">
     <!--LINL TOASTIFY-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -56,7 +56,7 @@
                                 <a class="nav-link" href="#">ACERCA DE NOSOTROS</a>
                               </li>
                               <li class="nav-item">
-                                <h2 class="ver-carrito nav-link" id="verCarrito">🛒 <span id="cantidadCarrrito" class="cantidad-carrrito"></span></h2>
+                                <h2 class="ver-carrito nav-link" id="verCarrito">🛒 <span id="cantidadCarrito" class="cantidad-carrrito"></span></h2>
                               </li>
                               </li>
                             </ul>
@@ -157,7 +157,9 @@
             </div>
             <!--Modal container-->
             <div id="modal-container" class="modal-container"></div>
+            <div class="btnFinalizarCompra">
             <button id="finalizarCompra" class="btn btn-secondary">Finalizar Compra</button>
+            </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 pt60 centrarTexto">
                     <p>Te garantizamos una gran experiencia a la hora de adquirir nuestros productos, aqui puedes observar tu carrito de compras</p>
@@ -165,18 +167,26 @@
 
                 <div class="col-lg-12 col-md-12">
                     <h3>Quieres recibir notoficaciones acerca de promociones y nuevos productos? Registrate</h3>
-                    <form id="formulario">
-                        <label for="nombre">
-                            Nombre
-                            <input type="text" name="nombre" id="nombre" placeholder="aqui tu nombre"/>
-                        </label>
-                        <label for="email">
-                            Email:
-                            <input type="email" name="email" id="email" placeholder="example@gmail.com"/>
-                            <small id="advertisement"></small>
-                        </label>
-                        <input type="submit" value="enviar" class="btn btn-success"/>
-                        <input type="button" value="borrar" class="btn btn-danger" onclick="borrarCampos()"/>
+                    <form action="/my-handling-form-page" method="post" id="formulario">
+                        <div class="botonNombre">
+                            <label for="nombre">
+                                Nombre
+                                <input type="text" name="nombre" id="nombre" placeholder="aqui tu nombre"/>
+                            </label>
+                        </div>
+                        <div class="botonEmail">
+                            <label for="email">
+                                Email:
+                                <input type="email" name="email" id="email" placeholder="example@gmail.com"/>
+                                <small id="advertisement"></small>
+                            </label>
+                        </div>
+                        <div class="botonEnviar">
+                            <input type="submit" value="enviar" class="btn btn-success"/>
+                        </div>
+                        <div class="botonBorrar">
+                            <input type="button" value="borrar" class="btn btn-danger" onclick="borrarCampos()"/>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -187,7 +197,7 @@
                 <h3>visita nuestras redes sociales</h3><br>
                 <a href="" target="_blank"> Ir a Facebook</a>
                 <img src="logos/logo_facebook.jpg" alt="logo facebook">
-                <a href="" target="_blank"> Ir a Instagram</a>
+                <a href="https://www.instagram.com/adorjewelry01/" target="_blank"> Ir a Instagram</a>
                 <img src="logos/logo_insta.jpg" alt="logo instagram">
             </div>
             <div class="col-lg-4 col-md-12">
@@ -208,7 +218,7 @@
     <!--LINK SWITE ALERT-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--LINK TOASTIFY-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!--LINK JAVA SCRIPT-->
     <script src="./js/logica_2.js"></script>
     <script src="./js/Carrito.js"></script>
